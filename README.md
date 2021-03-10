@@ -2,9 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Initial 
+## Additional installations 
 
 npm i -s react-dom react-router-dom node-sass@4.14.1
+npm i -s react-axios
 
 ## Available Scripts
 
