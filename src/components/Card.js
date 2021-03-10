@@ -4,6 +4,9 @@ const Card = (props) => {
     // pour se créer en option un raccourcis qui nous évite le props.country.xxx
     // on va destructurer ! putain de merde...
     const { country } = props;
+    const numberFormat = (x) => {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+      };
 
     return (
         <div>
@@ -13,7 +16,7 @@ const Card = (props) => {
                     <ul>
                         <li>{country.name}</li>
                         <li>{country.capital}</li>
-                        <li>Pop. {country.population}</li>
+                        <li>Pop. {numberFormat(country.population)}</li>
                     </ul>
                 </div>
             </li>
