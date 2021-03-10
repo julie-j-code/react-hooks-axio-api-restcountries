@@ -16,8 +16,13 @@ const Countries = () => {
   });
 
     return (
-        <div>
-            
+        <div className="coutries">
+            <ul className="coutries-name">
+
+            {data.map((country)=>
+            <li>{country.name}</li>
+            )}
+            </ul>
         </div>
     );
 };
