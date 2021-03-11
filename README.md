@@ -7,6 +7,16 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 npm i -s react-dom react-router-dom node-sass@4.14.1
 npm i -s react-axios
 
+### gh pages 
+
+npm install gh-pages
+
+additional script in package.json :
+`"deploy":"npm run build&&gh-pages -d build"`
++ "homepage"
+
+`npm run deploy`
+
 ## Available Scripts
 
 In the project directory, you can run:

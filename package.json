@@ -2,11 +2,13 @@
   "name": "cours-react",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://julie-j-code.github.io/react-hooks-axio-api-restcountries",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
+    "gh-pages": "^3.1.0",
     "node-sass": "^4.14.1",
     "react": "^17.0.1",
     "react-axios": "^2.0.5",
@@ -16,6 +18,8 @@
     "web-vitals": "^1.1.0"
   },
   "scripts": {
+    "predeploy":"npm run build",
+    "deploy":"gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
