@@ -8,6 +8,8 @@ const Countries = () => {
   const [sortedData, setSortedData] = useState([]);
   const [playOnce, setPlayOnce] = useState(true);
   const [rangeValue, setRangeValue] = useState(40);
+  const [selectedRadio, setSelectedRadio] = useState("");
+  const radios = ["Africa", "America", "Asia", "Europe", "Oceania"];
   useEffect(() => {
     if (playOnce) {
 
@@ -44,17 +46,37 @@ const Countries = () => {
 
   return (
     <div className="countries">
-      {/* c'est là qu'on commence à apprécier l'utilisation des hooks */}
-      <input type="range" min="1" max="250" value={rangeValue}
-        onChange={(e) => setRangeValue(e.target.value)}
-      />
+      <div className="sort-container">
+
+        {/* c'est là qu'on commence à apprécier l'utilisation des hooks */}
+        <input type="range" min="1" max="250" value={rangeValue}
+          onChange={(e) => setRangeValue(e.target.value)} />
+
+        <ul>
+          {radios.map((radio) => {
+            return (
+              <li key={radio}>
+                <input type="radio" value={radio} id={radio} checked={radio === selectedRadio}
+                  onChange={(e) => setSelectedRadio(e.target.value)}
+                />
+                <label htmlFor={radio}>{radio}</label>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
       <ul className="countries-list">
-        {sortedData.map((country) =>
-          // on crée un props en envoyant les données de country à la card
-          // sans oublier de passer une clée unique à chaque élément que l'on map
-          <Card country={country} key={country.name} />
-        )}
+        {
+          sortedData
+            // avant de mapper, pour utiliser selectedRadio, classiquement, on filtre
+            .filter((country) => country.region.includes(selectedRadio))
+            .map((country) =>
+              // on crée un props en envoyant les données de country à la card
+              // sans oublier de passer une clée unique à chaque élément que l'on map
+              <Card country={country} key={country.name} />
+            )}
       </ul>
+
     </div>
   );
 };
