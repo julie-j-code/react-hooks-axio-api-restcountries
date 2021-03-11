@@ -65,6 +65,13 @@ const Countries = () => {
           })}
         </ul>
       </div>
+      {/* pour réinitialiser la recherche */}
+      <div className="cancel">
+        {selectedRadio && (
+          <h5 onClick={() => setSelectedRadio("")}>Retirer les filtres de sélection</h5>
+        )}
+      </div>
+
       <ul className="countries-list">
         {
           sortedData
